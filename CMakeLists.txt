@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Change your executable name to something creative!
-set(NAME display_experiments) # <-- Name your project/executable here!
+set(NAME hello_ttgo) # <-- Name your project/executable here!
 #set(PICO_BOARD pico_w)
 
 include(pimoroni_pico_import.cmake)
@@ -30,17 +30,24 @@ include(drivers/motor/motor)
 include(drivers/analog/analog)
 include(drivers/encoder/encoder)
 include(drivers/pid/pid)
+include(drivers/st7789/st7789)
 #include(libraries/pico_explorer/pico_explorer)
 include(libraries/bitmap_fonts/bitmap_fonts)
 include(libraries/hershey_fonts/hershey_fonts)
-include(libraries/pico_explorer/pico_explorer)
+#include(libraries/pico_explorer/pico_explorer)
+
+include(libraries/pico_graphics/pico_graphics)
+include(libraries/pico_display/pico_display)
 
 
 # Don't forget to link the libraries you need!
 target_link_libraries(${NAME}
         pico_stdlib
-        pico_explorer
+        pico_display
         pico_graphics
+        hardware_spi
+        hardware_pwm
+        hardware_dma
         st7789
         button
         motor
