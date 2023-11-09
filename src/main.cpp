@@ -27,7 +27,7 @@ PicoGraphics_PenRGB332 graphics(st7789.width, st7789.height, nullptr);
 bool state = true;
 
 int main() {
-    st7789.set_backlight(100);
+    st7789.set_backlight(255);
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_init(T_DISPLAY_PWR);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
@@ -42,7 +42,7 @@ int main() {
     while (true) {
         graphics.set_pen(BG);
         graphics.clear();
-        graphics.set_pen(WHITE);
+        graphics.set_pen(TEAL);
         graphics.circle(Point(st7789.width / 2, st7789.height / 2), 20);
         st7789.update(&graphics);
         state = !state;
